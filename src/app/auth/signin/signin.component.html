@@ -1,1 +1,19 @@
-<p>signin works!</p>
+<div fxLayoutAlign="center center" fxFlexFill class="signin-main">
+  <mat-card fxFlex="40">
+    <mat-toolbar color="primary">Post Office Management System</mat-toolbar
+    ><br />
+    <mat-card-title fxLayoutAlign="center"> Sign In </mat-card-title>
+
+    <form fxLayoutAlign="stretch" fxLayout="column" class="signin-form">
+      <mat-form-field>
+        <input matInput placeholder="Username" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" />
+      </mat-form-field>
+
+      <button mat-raised-button type="submit">Sign In</button>
+    </form>
+  </mat-card>
+</div>
