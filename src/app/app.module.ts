@@ -13,9 +13,11 @@ import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './products/products-routing.module';
 import { AuthModule } from './auth/auth.module';
+import { DashboardViewComponent } from './dashboard-view/dashboard-view.component';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, DashboardViewComponent, SuperAdminComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

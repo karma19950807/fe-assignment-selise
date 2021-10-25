@@ -67,7 +67,7 @@
       <td mat-cell *matCellDef="let element">
         <a [routerLink]="['../view', element.id]">View</a> |
         <a [routerLink]="['../edit', element.id]">Edit</a> |
-        <a [routerLink]="['../delete', element.id]">Delete</a>
+        <a (click)="delete(element.id)"> Delete</a>
       </td>
     </ng-container>
 

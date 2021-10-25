@@ -104,11 +104,34 @@
 
       <mat-form-field>
         <mat-label>Confirm Password</mat-label>
-        <input matInput type="password" placeholder="Confirm Password" />
-        <mat-error *ngIf="!userInfoForm.controls['password']">
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="password1"
+        />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['password1'].errors &&
+            userInfoForm.controls['password1'].hasError('required')
+          "
+        >
+          Password confirm is required
+        </mat-error>
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['password1'] !==
+            userInfoForm.controls['password']
+          "
+        >
           Password do not match
         </mat-error>
       </mat-form-field>
+
+      <p>
+        Already have an account?
+        <a type="button" routerLink="signin">Sign In</a>
+      </p>
 
       <button
         mat-raised-button

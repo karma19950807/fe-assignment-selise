@@ -18,4 +18,12 @@ export class AuthService {
       })
     );
   }
+
+  getUsers() {
+    return this.http.get<AuthModule>(this.urlBase).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }

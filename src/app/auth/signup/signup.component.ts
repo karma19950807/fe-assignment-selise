@@ -28,6 +28,7 @@ export class SignupComponent implements OnInit {
       location: ['', [Validators.required]],
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
+      password1: ['', [Validators.required]],
     });
   }
 
@@ -38,11 +39,13 @@ export class SignupComponent implements OnInit {
     this.authModelObj.location = this.userInfoForm.value.location;
     this.authModelObj.username = this.userInfoForm.value.username;
     this.authModelObj.password = this.userInfoForm.value.password;
+    this.authModelObj.password = this.userInfoForm.value.password1;
 
     this.authService.postUserInfo(this.authModelObj).subscribe(
       (res) => {
         console.log(res);
         this._snackbar.open('Sign up is successful');
+        this.userInfoForm.reset();
       },
       (err) => {
         this._snackbar.open('Soemthing went wrong');

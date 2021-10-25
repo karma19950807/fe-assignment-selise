@@ -11,9 +11,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -29,8 +32,8 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     MatSnackBarModule,
     FormsModule,
-    BrowserModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
   ],
   exports: [
     SigninComponent,
@@ -44,8 +47,11 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     MatSnackBarModule,
     FormsModule,
-    BrowserModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
+  ],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
   ],
 })
 export class AuthModule {}

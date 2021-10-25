@@ -4,13 +4,31 @@
     ><br />
     <mat-card-title fxLayoutAlign="center"> Sign In </mat-card-title>
 
-    <form fxLayoutAlign="stretch" fxLayout="column" class="signin-form">
+    <form
+      [formGroup]="signinForm"
+      (submit)="onSubmit()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      class="signin-form"
+    >
       <mat-form-field>
-        <input matInput placeholder="Username" />
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="Username"
+          [formControl]="props('username')"
+        />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" />
+        <mat-label>Password</mat-label>
+        <input
+          [formControl]="props('password')"
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
       </mat-form-field>
 
       <button mat-raised-button type="submit">Sign In</button>

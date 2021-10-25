@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SigninComponent } from './auth/signin/signin.component';
 
 import { ProductsRoutingModule } from './products/products-routing.module';
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: 'users',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./newmodule/newmodule.module').then((m) => m.NewmoduleModule),
   },
+  { path: 'home', component: SigninComponent },
 ];
 
 @NgModule({
