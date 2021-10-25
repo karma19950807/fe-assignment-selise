@@ -89,11 +89,15 @@
       "datetime": ""
     }
   ],
-  "comments": [
+  "users": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "fullname": "Karma Samdrup",
+      "email": "kasamdrup@gmail.com",
+      "phone_no": 17322111,
+      "location": "Thimphu GPO",
+      "username": "karma",
+      "password": "root@123"
     }
   ],
   "profile": {

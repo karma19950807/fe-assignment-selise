@@ -2,18 +2,122 @@
   <mat-card fxFlex="40">
     <mat-toolbar color="primary">Post Office Management System</mat-toolbar
     ><br />
-    <mat-card-title fxLayoutAlign="center"> Sign In </mat-card-title>
+    <mat-card-title fxLayoutAlign="center"> Sign Up </mat-card-title>
 
-    <form fxLayoutAlign="stretch" fxLayout="column" class="signin-form">
+    <form
+      [formGroup]="userInfoForm"
+      (submit)="postUserInfo()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      class="signin-form"
+    >
       <mat-form-field>
-        <input matInput placeholder="Username" />
+        <mat-label> Fullname </mat-label>
+        <input matInput placeholder="Fullname" formControlName="fullname" />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['fullname'].errors &&
+            userInfoForm.controls['fullname'].hasError('required')
+          "
+        >
+          Fullname is required
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" />
+        <mat-label> Email </mat-label>
+        <input matInput placeholder="Email" formControlName="email" />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['email'].errors &&
+            userInfoForm.controls['email'].hasError('required')
+          "
+        >
+          Email address is requried
+        </mat-error>
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['email'].errors &&
+            userInfoForm.controls['email'].hasError('email')
+          "
+        >
+          Email is invalid
+        </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button type="submit">Sign In</button>
+      <mat-form-field>
+        <mat-label>Phone number</mat-label>
+        <input matInput placeholder="Phone number" formControlName="phone_no" />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['phone_no'].errors &&
+            userInfoForm.controls['phone_no'].hasError('required')
+          "
+        >
+          Phone number is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Location </mat-label>
+        <input matInput placeholder="Location" formControlName="location" />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['location'].errors &&
+            userInfoForm.controls['location'].hasError('required')
+          "
+        >
+          Location is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="username" />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['username'].errors &&
+            userInfoForm.controls['username'].hasError('required')
+          "
+        >
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Password </mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <mat-error
+          *ngIf="
+            userInfoForm.controls['password'].errors &&
+            userInfoForm.controls['password'].hasError('required')
+          "
+        >
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm Password" />
+        <mat-error *ngIf="!userInfoForm.controls['password']">
+          Password do not match
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="!userInfoForm.valid"
+      >
+        Sign Up
+      </button>
     </form>
   </mat-card>
 </div>

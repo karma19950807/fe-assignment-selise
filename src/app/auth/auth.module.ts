@@ -10,6 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent],
@@ -22,6 +26,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FlexLayoutModule,
     MatButtonModule,
     MatToolbarModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule,
   ],
   exports: [
     SigninComponent,
@@ -32,6 +41,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FlexLayoutModule,
     MatButtonModule,
     MatToolbarModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule,
   ],
 })
 export class AuthModule {}
