@@ -12,9 +12,10 @@ import { SuperAdminComponent } from '../super-admin/super-admin.component';
 const routes: Routes = [
   {
     path: 'products',
+    outlet: 'view-dashboard',
     children: [
       { path: '', component: ListProductsComponent },
-      { path: 'list', component: SuperAdminComponent },
+      { path: 'list', component: ListProductsComponent },
       { path: 'view/:id', component: ViewProductsComponent },
       { path: 'edit/:id', component: EditProductsComponent },
       { path: 'delete/:id', component: ListProductsComponent },

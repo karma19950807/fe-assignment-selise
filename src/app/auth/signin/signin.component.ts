@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -20,7 +21,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -28,13 +30,13 @@ export class SigninComponent implements OnInit {
       this.dataUsers = res;
     });
     this.signinForm = this.fb.group({
-      username: [undefined, Validators.required],
-      password: [undefined, Validators.required],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
-    debugger;
+    //debugger;
     let name = this.signinForm.value.username;
     let pass = this.signinForm.value.password;
     if (
@@ -42,12 +44,12 @@ export class SigninComponent implements OnInit {
         return e.username === name && e.password === pass;
       }).length > 0
     ) {
-      // show snackbar
+      this._snackbar.open('You have successfully logged in');
       console.log('success');
-      this.router.navigate(['/products/list']);
-      debugger;
+      //this.router.navigate(['/products/list']);
+      //debugger;
     } else {
-      // show snackbar
+      this._snackbar.open('Unable to log in');
     }
   }
 
